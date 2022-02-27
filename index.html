@@ -1,62 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="https://kit.fontawesome.com/27aaa5eb05.js" crossorigin="anonymous"></script>
+		<title>Momentum</title>
+	</head>
 
-<head>
-    
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="https://kit.fontawesome.com/27aaa5eb05.js" crossorigin="anonymous"></script>
-    <title>Momentum</title>
-</head>
+	<body>
+		<!-- Show clock, location, weather -->
+		<header class="info">
+			<div id="clock">
+				<span>00:00:00</span>
+			</div>
+			<div>
+				<span id="location"></span>
+				<span id="weather"></span>
+			</div>
+		</header>
 
-<body>
-    <!-- Show clock, location, weather -->
-    <header class="info">
-        <div id="clock">
-            <span>00:00:00</span>
-        </div>
-        <div>
-            <span id="location"></span>
-            <span id="weather"></span>
-        </div>
-    </header>
+		<!-- Show Content -->
+		<section>
+			<!-- Login Page -->
+			<div class="login-page">
+				<form class="login-form">
+					<span>LOGIN</span>
+					<input type="text" placeholder="Enter your name." required />
+				</form>
+				<button>GUEST LOGIN</button>
+			</div>
 
-    <!-- Show Content -->
-    <section>
-        <!-- Login Page -->
-        <div class="login-page">
-            <form class="login-form">
-                <span>LOGIN</span>
-                <input type="text" placeholder="Enter your name." required>
-            </form>
-            <button>GUEST LOG IN</button>
-        </div>
+			<!-- After login, show this todo list Page -->
+			<div class="todo-page hidden">
+				<form class="todo-form">
+					<span id="who"></span>, you have to...
+					<input type="text" placeholder="What do you have to do?" required />
+					<button>ADD</button>
+				</form>
+				<ul id="todo-list"></ul>
+			</div>
+		</section>
+		<footer>
+			<div class="quotes">
+				<span></span>
+				<span></span>
+			</div>
+		</footer>
 
-        <!-- After login, show this todo list Page -->
-        <div class="todo-page hidden">
-            <form class="todo-form">
-                <span id="who"></span>, you have to...
-                <input type="text" placeholder="What do you have to do?" required>
-                <button> ADD </button>
-            </form>
-            <ul id="todo-list"></ul>
-        </div>
-    </section>
-    <footer>
-        <div class="quotes">
-            <span></span>
-            <span></span>
-        </div>
-    </footer>
-
-    <script src="js/background.js"></script>
-    <script src="js/clock.js"></script>
-    <script src="js/geolocation.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/todo.js"></script>
-
-</body>
-
+		<script src="js/background.js"></script>
+		<script src="js/clock.js"></script>
+		<script src="js/geolocation.js"></script>
+		<script src="js/login.js"></script>
+		<script src="js/todo.js"></script>
+	</body>
 </html>
