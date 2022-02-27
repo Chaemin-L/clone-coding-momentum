@@ -3,7 +3,7 @@ const loginForm = document.querySelector(".login-form");
 const loginInput = loginForm.querySelector(" input");
 const who = document.querySelector("#who");
 const todoPage = document.querySelector(".todo-page");
-const guestBtn = todoPage.querySelector("button");
+const guestBtn = loginPage.querySelector("button");
 
 const USER_NAME_KEY = "userName";
 const HIDDEN_CLASS = "hidden";
