@@ -16,15 +16,29 @@ function handleTodoForm(event){
 };
 
 function paintTodo(newTodoObj){
+    /* deleteBtn */
+    const div1 = document.createElement("div");
     const deleteBtn = document.createElement("i");
-    //deleteBtn.innerHTML = '<i class="far fa-trash-alt"></i>'
-    deleteBtn.setAttribute("class", "fa fa-trash-alt fa-pull-right");
+    deleteBtn.setAttribute("class", "fa fa-trash-alt");
     deleteBtn.addEventListener("click", removeTodo);
+    div1.appendChild(deleteBtn);
+
+    /* check box */
+    const checkBox = document.createElement("img");
+    checkBox.setAttribute("src", "img/unchecked.png");
+    checkBox.setAttribute("width", "22px");
+    /* title(span) */
+    const div2 = document.createElement("div");
+    const title = document.createElement("span");
+    title.textContent = newTodoObj.text;
+    div2.appendChild(checkBox);
+    div2.appendChild(title);
+
     const li = document.createElement("li");
     li.id = newTodoObj.id;
-    li.innerText = newTodoObj.text;
     todoInput.value = "";
-    li.appendChild(deleteBtn);
+    li.appendChild(div2);
+    li.appendChild(div1);
     todoList.appendChild(li);
 }
 

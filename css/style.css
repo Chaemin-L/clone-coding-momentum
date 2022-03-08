@@ -86,13 +86,28 @@ section{
 #todo-list{
     width: 550px;
     height: 400px;
-    padding: 10px;
+    margin-top: 20px;
+    padding: 0 10px 10px 0;
     overflow: auto;
     word-break:break-all;
 }
 
 #todo-list li{
     margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#todo-list li div{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+#todo-list li>div span{
+    margin-left: 10px;
 }
 #todo-list::-webkit-scrollbar {
     width: 10px;
