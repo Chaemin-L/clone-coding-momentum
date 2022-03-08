@@ -43,7 +43,7 @@ function paintTodo(newTodoObj){
 }
 
 function removeTodo(event){
-    const li = event.target.parentElement;
+    const li = event.target.parentElement.parentElement;
     todos = todos.filter(todo => (todo.id !== parseInt(li.id)));
     li.remove();
     saveTodo();
