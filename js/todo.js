@@ -18,7 +18,7 @@ function handleTodoForm(event){
 function paintTodo(newTodoObj){
     const deleteBtn = document.createElement("i");
     //deleteBtn.innerHTML = '<i class="far fa-trash-alt"></i>'
-    deleteBtn.setAttribute("class", "fa fa-trash-alt");
+    deleteBtn.setAttribute("class", "fa fa-trash-alt fa-pull-right");
     deleteBtn.addEventListener("click", removeTodo);
     const li = document.createElement("li");
     li.id = newTodoObj.id;
