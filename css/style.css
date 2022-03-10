@@ -100,11 +100,25 @@ section{
     align-items: center;
     justify-content: space-between;
 }
+#todo-list li:hover{
+    border-radius: 5px;
+    background-color: #fff;
+    color:black;
+    opacity: 70%;
+    cursor: pointer;
+}
 
 #todo-list li div{
     height: 100%;
     display: flex;
+    margin: 0 5px;
     align-items: center;
+}
+#todo-list li div:first-child{
+    flex: 12;
+}
+#todo-list li div:last-child{
+    flex: 1;
 }
 #todo-list li>div span{
     margin-left: 10px;
