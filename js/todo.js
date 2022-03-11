@@ -39,6 +39,7 @@ function paintTodo(newTodoObj){
     todoInput.value = "";
     li.appendChild(div2);
     li.appendChild(div1);
+    li.addEventListener("click", changeStatus);
     todoList.appendChild(li);
 }
 
@@ -52,6 +53,15 @@ function removeTodo(event){
 function saveTodo(){
     localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+function changeStatus(event) {
+    if (event.target.firstElementChild.getAttribute("src") == "img/unchecked.png") {
+        event.target.firstElementChild.setAttribute("src", "img/checked.png");
+    } else {
+        event.target.firstElementChild.setAttribute("src", "img/unchecked.png");
+    }
+}
+
 
 const savedTodo = localStorage.getItem("todos");
 if(savedTodo){
