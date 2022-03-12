@@ -9,6 +9,7 @@ function handleTodoForm(event){
     const newTodoObj = {
         "id": Date.now(),
         "text": todoInput.value,
+        "checked": false,
     };
     paintTodo(newTodoObj);
     todos.push(newTodoObj);
@@ -25,7 +26,11 @@ function paintTodo(newTodoObj){
 
     /* check box */
     const checkBox = document.createElement("img");
-    checkBox.setAttribute("src", "img/unchecked.png");
+    if (newTodoObj.checked) {
+        checkBox.setAttribute("src", "img/checked.png");
+    } else {
+        checkBox.setAttribute("src", "img/unchecked.png");
+    }
     checkBox.setAttribute("width", "22px");
     /* title(span) */
     const div2 = document.createElement("div");
@@ -50,16 +55,29 @@ function removeTodo(event){
     saveTodo();
 }
 
-function saveTodo(){
+function saveTodo() {
     localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 function changeStatus(event) {
-    if (event.target.firstElementChild.getAttribute("src") == "img/unchecked.png") {
-        event.target.firstElementChild.setAttribute("src", "img/checked.png");
-    } else {
-        event.target.firstElementChild.setAttribute("src", "img/unchecked.png");
+    let targetItem = event.target.tagName;
+    switch (targetItem) {
+        case "DIV":
+            targetItem = event.target.parentElement;
+            break;
+        case "SPAN":
+        case "IMG":
+            targetItem = event.target.parentElement.parentElement;
+            break;
+        default:
+            return;       
     }
+    targetItem = todos.find(todo => (todo.id === parseInt(targetItem.id)));
+    targetItem.checked = !targetItem.checked;
+    saveTodo();
+    curTodolist = todoList.querySelectorAll("li");
+    curTodolist.forEach((list) => list.remove());
+    todos.forEach(paintTodo)
 }
 
 
@@ -67,7 +85,6 @@ const savedTodo = localStorage.getItem("todos");
 if(savedTodo){
     const parsedTodos = JSON.parse(savedTodo);
     todos = parsedTodos;
-    console.log(todos);
     todos.forEach(paintTodo);
 }
 
