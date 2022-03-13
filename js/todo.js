@@ -45,6 +45,8 @@ function paintTodo(newTodoObj){
     li.appendChild(div2);
     li.appendChild(div1);
     li.addEventListener("click", changeStatus);
+    div2.addEventListener('mouseenter', inEffect);
+    div2.addEventListener('mouseleave', outEffect);
     todoList.appendChild(li);
 }
 
@@ -80,6 +82,50 @@ function changeStatus(event) {
     todos.forEach(paintTodo)
 }
 
+function inEffect(event) {
+    let targetItem = event.target.tagName;
+    switch (targetItem) {
+        case "DIV":
+            targetItem = event.target.firstChild;
+            break;
+        case "SPAN":
+            targetItem = event.target.parentElement.firstChild;
+            break;
+        case "IMG":
+            targetItem = event.target;
+            break;
+        default:
+            return;       
+    }
+    console.log(targetItem.src);
+    if (targetItem.getAttribute("src") == "img/checked.png") {
+        targetItem.setAttribute("src", "img/tick.png");
+    } else if(targetItem.getAttribute("src") == "img/unchecked.png") {
+        targetItem.setAttribute("src", "img/dark_unchecked.png");
+    }
+}
+
+function outEffect(event) {
+    let targetItem = event.target.tagName;
+    switch (targetItem) {
+        case "DIV":
+            targetItem = event.target.firstChild;
+            break;
+        case "SPAN":
+            targetItem = event.target.parentElement.firstChild;
+            break;
+        case "IMG":
+            targetItem = event.target;
+            break;
+        default:
+            return;       
+    }
+    if (targetItem.getAttribute("src") == "img/tick.png") {
+        targetItem.setAttribute("src", "img/checked.png");
+    } else if(targetItem.getAttribute("src") == "img/dark_unchecked.png") {
+        targetItem.setAttribute("src", "img/unchecked.png");
+    }
+}
 
 const savedTodo = localStorage.getItem("todos");
 if(savedTodo){
