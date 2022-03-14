@@ -99,7 +99,7 @@ function inEffect(event) {
     }
     console.log(targetItem.src);
     if (targetItem.getAttribute("src") == "img/checked.png") {
-        targetItem.setAttribute("src", "img/tick.png");
+        targetItem.setAttribute("src", "img/dark_checked.png");
     } else if(targetItem.getAttribute("src") == "img/unchecked.png") {
         targetItem.setAttribute("src", "img/dark_unchecked.png");
     }
@@ -120,7 +120,7 @@ function outEffect(event) {
         default:
             return;       
     }
-    if (targetItem.getAttribute("src") == "img/tick.png") {
+    if (targetItem.getAttribute("src") == "img/dark_checked.png") {
         targetItem.setAttribute("src", "img/checked.png");
     } else if(targetItem.getAttribute("src") == "img/dark_unchecked.png") {
         targetItem.setAttribute("src", "img/unchecked.png");
