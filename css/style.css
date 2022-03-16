@@ -135,7 +135,11 @@ section{
     border-radius: 10px;
   }
 
-
+#geolocation {
+    display:flex;
+    flex-direction: column;
+    text-align: end;
+}
 .hidden{
     display: none;    
 }
