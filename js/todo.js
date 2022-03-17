@@ -97,7 +97,6 @@ function inEffect(event) {
         default:
             return;       
     }
-    console.log(targetItem.src);
     if (targetItem.getAttribute("src") == "img/checked.png") {
         targetItem.setAttribute("src", "img/dark_checked.png");
     } else if(targetItem.getAttribute("src") == "img/unchecked.png") {
